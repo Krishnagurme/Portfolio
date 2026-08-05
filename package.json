@@ -1,0 +1,8 @@
+{
+  "name": "soc-analyst-portfolio-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix soc-analyst-portfolio run dev",
+    "build": "npm --prefix soc-analyst-portfolio run build"
+  }
+}
