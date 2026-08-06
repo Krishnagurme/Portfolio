@@ -15,7 +15,7 @@ export default function InvestigationCard({ investigation }) {
         </div>
       </div>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+      <div className={`mt-6 grid gap-3 grid-cols-2 ${investigation.verdict ? 'sm:grid-cols-4' : 'sm:grid-cols-3'}`}>
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-secondary-text)]">Event IDs</p>
           <p className="mt-2 text-sm text-white">{investigation.eventIds.join(', ')}</p>
@@ -24,13 +24,23 @@ export default function InvestigationCard({ investigation }) {
           <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-secondary-text)]">Tools</p>
           <p className="mt-2 text-sm text-white">{investigation.tools.join(', ')}</p>
         </div>
+        <div>
+          <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-secondary-text)]">Status</p>
+          <p className="mt-2 text-sm text-white">{investigation.status}</p>
+        </div>
+        {investigation.verdict && (
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-secondary-text)]">Verdict</p>
+            <p className="mt-2 text-sm text-white">{investigation.verdict}</p>
+          </div>
+        )}
       </div>
 
       <Link
         to={`/investigations/${investigation.slug}`}
         className="mt-6 inline-flex items-center rounded-[1rem] bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-[var(--color-accent-strong)]"
       >
-        View Case
+        View Investigation
       </Link>
     </article>
   )

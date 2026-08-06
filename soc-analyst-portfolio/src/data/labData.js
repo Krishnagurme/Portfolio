@@ -74,7 +74,7 @@ export const labData = {
     {
       title: 'SYSMON',
       description: 'Provides enhanced endpoint telemetry useful for understanding system activity such as process creation and network connections.',
-      example: 'Process creation, network connection, file activity',
+      example: 'Event ID 1 — Process Creation (e.g., powershell.exe)',
     },
   ],
   eventExample: {

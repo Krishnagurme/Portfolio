@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Container } from '../components/ui/Container.jsx'
 import SectionHeading from '../components/ui/SectionHeading.jsx'
 import LabArchitecture from '../components/lab/LabArchitecture.jsx'
@@ -63,21 +64,25 @@ export default function SocLab() {
           <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-accent)]">Investigations</p>
           <h2 className="mt-4 text-3xl font-semibold text-white">Translate lab telemetry into analyst investigation practice</h2>
           <p className="mt-5 text-base leading-8 text-[var(--color-secondary-text)]">
-            Review the investigations section to connect lab evidence with structured analysis, event narrative, and SOC documentation practice.
+            Review the investigations section to connect lab evidence with structured analysis, event narrative, and SOC documentation practice. The lab environment has supported:
           </p>
+          <ul className="mt-4 list-disc pl-6 space-y-2 text-base leading-7 text-[var(--color-secondary-text)]">
+            <li><strong>CASE-001:</strong> Windows Failed Authentication Detection</li>
+            <li><strong>CASE-002:</strong> PowerShell Process Investigation</li>
+          </ul>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="/investigations/windows-failed-authentication"
+            <Link
+              to="/investigations"
               className="inline-flex items-center justify-center rounded-[1rem] bg-[var(--color-accent)] px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-[var(--color-accent-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
             >
-              View Case Study
-            </a>
-            <a
-              href="/projects/soc-home-lab"
+              View Investigations
+            </Link>
+            <Link
+              to="/projects/soc-home-lab"
               className="inline-flex items-center justify-center rounded-[1rem] border border-[var(--color-border)] bg-[var(--color-bg)] px-6 py-3 text-sm font-semibold text-[var(--color-text)] transition hover:bg-[var(--color-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
             >
               View Project
-            </a>
+            </Link>
           </div>
         </section>
         <LabExpansion />

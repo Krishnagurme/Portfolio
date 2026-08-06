@@ -22,6 +22,10 @@ export const projects = [
         label: 'CASE-001 investigation',
         to: '/investigations/windows-failed-authentication',
       },
+      {
+        label: 'CASE-002 investigation',
+        to: '/investigations/powershell-process-investigation',
+      },
     ],
     sections: [
       {

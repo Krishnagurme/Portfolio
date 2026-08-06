@@ -92,14 +92,18 @@ export default function Contact() {
       <Container>
         <Card className="space-y-4">
           <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-accent)]">Explore my work</p>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-3">
             <Link to="/soc-lab" className="rounded-[1.25rem] border border-[var(--color-border)] bg-[var(--color-bg)] p-5 transition hover:border-[var(--color-accent)] hover:bg-[var(--color-surface)]">
               <h3 className="text-lg font-semibold text-white">SOC Home Lab</h3>
               <p className="mt-2 text-sm leading-6 text-[var(--color-secondary-text)]">Review the home lab environment and the defensive workflow it supports.</p>
             </Link>
-            <Link to="/investigations/case-001-windows-failed-authentication" className="rounded-[1.25rem] border border-[var(--color-border)] bg-[var(--color-bg)] p-5 transition hover:border-[var(--color-accent)] hover:bg-[var(--color-surface)]">
+            <Link to="/investigations/windows-failed-authentication" className="rounded-[1.25rem] border border-[var(--color-border)] bg-[var(--color-bg)] p-5 transition hover:border-[var(--color-accent)] hover:bg-[var(--color-surface)]">
               <h3 className="text-lg font-semibold text-white">CASE-001</h3>
               <p className="mt-2 text-sm leading-6 text-[var(--color-secondary-text)]">Explore the investigation narrative and evidence trail for the Windows failed authentication case.</p>
+            </Link>
+            <Link to="/investigations/powershell-process-investigation" className="rounded-[1.25rem] border border-[var(--color-border)] bg-[var(--color-bg)] p-5 transition hover:border-[var(--color-accent)] hover:bg-[var(--color-surface)]">
+              <h3 className="text-lg font-semibold text-white">CASE-002</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--color-secondary-text)]">Explore the process-creation evidence and triage approach for the PowerShell alert case.</p>
             </Link>
           </div>
         </Card>

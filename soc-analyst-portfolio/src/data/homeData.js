@@ -40,13 +40,13 @@ export const homeData = {
     {
       title: 'Security Investigations',
       description:
-        'Documented lab investigations covering security events, telemetry, detection logic and analyst observations.',
-      badgeTag: 'Lab Case',
-      exampleLabel: 'CASE-001',
-      exampleTitle: 'Windows Failed Authentication',
-      exampleNote: 'Event ID 4625',
-      ctaText: 'View Case Study',
-      to: '/investigations/windows-failed-authentication',
+        'Documented SOC investigations using Windows security telemetry, Sysmon, and Wazuh.',
+      badgeTag: 'Lab Cases',
+      exampleLabel: 'CASE-001 & CASE-002',
+      exampleTitle: 'Failed Authentication & PowerShell Process Investigation',
+      exampleNote: 'Wazuh & Sysmon',
+      ctaText: 'View Investigations',
+      to: '/investigations',
     },
   ],
 }
