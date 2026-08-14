@@ -1,4 +1,4 @@
-import { Monitor, Laptop2, Wifi, Users } from 'lucide-react'
+import { Monitor, Laptop2, Wifi, Users, Shield, Search } from 'lucide-react'
 import { Card } from '../ui/Card.jsx'
 import { homeData } from '../../data/homeData.js'
 
@@ -7,6 +7,8 @@ const iconMap = {
   Laptop2,
   Wifi,
   Users,
+  Shield,
+  Search,
 }
 
 export default function CoreFocus() {
@@ -16,18 +18,18 @@ export default function CoreFocus() {
         <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-accent)]">Core focus</p>
         <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">SOC focus areas for entry-level defenders</h2>
         <p className="mt-4 text-base leading-7 text-[var(--color-secondary-text)]">
-          Practical security work starts with telemetry, Windows security, network visibility and identity fundamentals.
+          Practical security work starts with telemetry, Windows security, network visibility, detection engineering, and incident investigation.
         </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         {homeData.coreFocus.map((focus) => {
-          const Icon = iconMap[focus.icon]
+          const IconComponent = iconMap[focus.icon] || Shield
           return (
             <Card key={focus.title} hoverable>
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-accent)]/12 text-[var(--color-accent)]">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
+                  <IconComponent className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-white">{focus.title}</h3>

@@ -1,12 +1,12 @@
 export const siteConfig = {
-  name: '',
-  role: 'Junior SOC Analyst',
-  email: '',
-  github: '',
-  linkedin: '',
+  name: 'KRISHNA GURME',
+  role: 'SOC Analyst | Cybersecurity Enthusiast',
+  phone: '9689295615',
+  email: 'krishnagurme8888@gmail.com',
+  github: 'https://github.com/Krishnagurme',
+  linkedin: 'https://www.linkedin.com/in/krishna-g-b619b941b',
   availability: 'Open to Entry-Level SOC Opportunities',
-  // Place your real resume PDF at public/resume/resume.pdf
-  resume: '/resume/resume.pdf',
+  resume: '/resume',
   navItems: [
     { title: 'Home', to: '/' },
     { title: 'About', to: '/about' },
@@ -15,6 +15,7 @@ export const siteConfig = {
     { title: 'Investigations', to: '/investigations' },
     { title: 'Projects', to: '/projects' },
     { title: 'Learning', to: '/learning' },
+    { title: 'Resume', to: '/resume' },
     { title: 'Contact', to: '/contact' },
   ],
 }

@@ -134,4 +134,76 @@ export const projects = [
       },
     ],
   },
+  {
+    slug: 'project-03-enterprise-soc-detection-engineering',
+    title: 'Enterprise SOC Detection & Incident Response Lab',
+    summary:
+      'Built an enterprise-style SOC detection engineering and threat hunting lab using Wazuh and Sysmon to collect, investigate, and engineer detections from Windows endpoint telemetry. The project covers six detection scenarios, Sigma rules, MITRE ATT&CK mapping, proactive threat hunting, false-positive analysis, detection tuning, and detection validation.',
+    focus: 'Detection Engineering • Threat Hunting • SIEM • Windows Security',
+    status: 'Completed',
+    type: 'SOC / Detection Engineering / Threat Hunting',
+    techStack: 'Wazuh • Sysmon • Windows 11 • Sigma • MITRE ATT&CK • PowerShell',
+    timeline: 'Completed — 6 Detection Scenarios, Sigma Rules, MITRE Mapping, Threat Hunting & Tuning',
+    highlights: [
+      'Engineered 6 detection scenarios (DET-001 through DET-006) covering PowerShell ExecutionPolicy bypass, command shell chaining, registry Run key persistence, and LSASS process access.',
+      'Collected multi-source endpoint telemetry using Sysmon (Event IDs 1, 3, 10, 13) and forwarded events to Wazuh SIEM.',
+      'Authored 6 vendor-neutral Sigma detection rules mapped to MITRE ATT&CK tactics.',
+      'Conducted proactive, hypothesis-driven threat hunting across process lineage, autostart registry keys, and LSASS memory access handles.',
+      'Performed rigorous false-positive analysis and detection tuning following the core principle: Behavior + Context + Correlation > Single-field matching.',
+    ],
+    links: [
+      {
+        label: 'GitHub Repository',
+        to: 'https://github.com/Krishnagurme/Detection-Engineering-Threat-Hunting-Framework.git',
+      },
+    ],
+    featured: true,
+    sections: [
+      {
+        title: '01 – Project Overview',
+        content:
+          'Built an enterprise-style SOC detection engineering and threat hunting lab using Wazuh and Sysmon to collect, investigate, and engineer detections from Windows endpoint telemetry.\n\nThe project focuses on developing behavioral detections, validating endpoint telemetry, investigating security events across process creation and registry modifications, tuning rules to reduce false positives, and conducting proactive threat hunting.',
+      },
+      {
+        title: '02 – Project Metrics',
+        content:
+          '• 6 Detection Scenarios: DET-001 (PowerShell), DET-002 (PowerShell -> CMD), DET-003 (Suspicious Process Tree), DET-004 (Registry Run Key Persistence), DET-005 (LSASS Memory Access), DET-006 (Outbound Network Connection)\n• 4+ Sysmon Event Types: Event ID 1 (Process Creation), Event ID 3 (Network Connection), Event ID 10 (Process Access), Event ID 13 (Registry Value Set)\n• 6 Vendor-Neutral Sigma Rules authored in YAML\n• 4 MITRE ATT&CK Techniques mapped on empirical logs (T1059.001, T1059.003, T1547.001, T1003.001)\n• Proactive Threat Hunting & False-Positive Tuning',
+      },
+      {
+        title: '03 – Detection Engineering Architecture',
+        content:
+          'Data Flow:\nWindows 11 Endpoint → Sysmon Instrumentation (Event ID 1, 3, 10, 13) → Wazuh Agent → Wazuh SIEM Manager/Dashboard → SOC Analyst Review → Sigma & Wazuh Rules → Detection Testing → Threat Hunting → FP Analysis & Tuning → Improved Actionable Security Signal',
+      },
+      {
+        title: '04 – Detection Coverage Matrix',
+        content:
+          '• DET-001 (Suspicious PowerShell): Sysmon Event ID 1 | MITRE T1059.001 | Execution | Telemetry Validated\n• DET-002 (PowerShell → CMD): Sysmon Event ID 1 | MITRE T1059.003 | Execution | Telemetry Validated\n• DET-003 (Suspicious Process): Sysmon Event ID 1 | Behavioral | Execution | Telemetry Validated\n• DET-004 (Registry Run Key): Sysmon Event ID 13 | MITRE T1547.001 | Persistence | Telemetry Validated\n• DET-005 (LSASS Access): Sysmon Event ID 10 | MITRE T1003.001 | Credential Access | Telemetry Validated\n• DET-006 (Outbound Network): Sysmon Event ID 3 | Context-Dependent | Network Signal | Telemetry Validated',
+      },
+      {
+        title: '05 – Threat Hunting Workflow',
+        content:
+          'Followed an 8-stage hypothesis-driven threat hunting methodology:\nHypothesis → Telemetry → Query → Investigation → Validation → Finding → Detection Improvement\n\nDocumented Hunts:\n• PowerShell Hunting: Searching for ExecutionPolicy Bypass and download cradles.\n• Suspicious Process Hunting: Tracing powershell.exe → cmd.exe process chains.\n• Persistence Hunting: Auditing HKCU\\...\\CurrentVersion\\Run registry modifications.\n• Credential Access Hunting: Querying Sysmon Event ID 10 handles against lsass.exe.\n• Network Hunting: Inspecting outbound connections on non-standard TCP ports.',
+      },
+      {
+        title: '06 – False Positive Analysis & Detection Tuning',
+        content:
+          'Core Principle: Behavior + Context + Correlation > Single-field matching\n\nExamples:\n• DET-001 (PowerShell): Require ExecutionPolicy Bypass or script flags rather than alerting on powershell.exe alone.\n• DET-002 (PowerShell -> CMD): Evaluate process ancestry and command-line parameters (/c whoami).\n• DET-003 (Registry): Filter trusted application updates (Edge/OneDrive) while auditing unsigned scripts or %TEMP% paths.\n• DET-004 (LSASS Access): Filter expected OS binaries (svchost.exe/SYSTEM) while inspecting GrantedAccess rights and CallTrace stacks.\n• DET-005 (Network): Combine binary name with destination IP, port, and frequency to separate OneDrive HTTPS sync from unexpected C2 connections.',
+      },
+      {
+        title: '07 – Vendor-Neutral Sigma Detection Rules',
+        content:
+          'Authored 6 production-ready Sigma rules in YAML:\n• DET-001-PowerShell.yml\n• DET-002-Command-and-Scripting.yml\n• DET-003-Suspicious-Process.yml\n• DET-004-Persistence.yml\n• DET-005-Credential-Access.yml\n• DET-006-Suspicious-Network.yml',
+      },
+      {
+        title: '08 – MITRE ATT&CK Mapping & Discipline',
+        content:
+          'Mapped techniques based strictly on empirical evidence:\n• T1059.001 — PowerShell\n• T1059.003 — Windows Command Shell\n• T1547.001 — Registry Run Keys / Startup Folder\n• T1003.001 — LSASS Memory\n\nNote: DET-006 Network Connection is deliberately not forced onto a specific C2 technique, demonstrating rigorous detection engineering discipline.',
+      },
+      {
+        title: '09 – Key Learnings & Limitations',
+        content:
+          'Key Learnings:\n1. Telemetry comes first — detections are only as reliable as underlying logs.\n2. Context prevents noise — single-field alerts produce false positives.\n3. Detection engineering is iterative — requires continuous testing and tuning.\n\nProject Limitations:\nEndpoint telemetry was successfully captured for all 6 scenarios, but custom Wazuh alert validation remains pending for select rule files. Maintaining this distinction prevents unsupported claims.',
+      },
+    ],
+  },
 ];

@@ -5,7 +5,7 @@ import ProofOfWork from '../components/home/ProofOfWork.jsx'
 
 export default function Home() {
   return (
-    <main className="space-y-10 py-10 lg:py-14">
+    <main className="space-y-10 py-6 lg:py-8">
       <Container>
         <Hero />
       </Container>

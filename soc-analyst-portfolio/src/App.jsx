@@ -10,6 +10,7 @@ import InvestigationDetail from './pages/InvestigationDetail.jsx'
 import Projects from './pages/Projects.jsx'
 import ProjectDetail from './pages/ProjectDetail.jsx'
 import Learning from './pages/Learning.jsx'
+import Resume from './pages/Resume.jsx'
 import Contact from './pages/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="projects" element={<Projects />} />
           <Route path="projects/:slug" element={<ProjectDetail />} />
           <Route path="learning" element={<Learning />} />
+          <Route path="resume" element={<Resume />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
