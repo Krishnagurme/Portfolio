@@ -30,10 +30,10 @@ export const homeData = {
   ],
   proofCards: [
     {
-      title: 'SOC Home Lab',
+      title: 'SOC Home Lab — Detection Engineering, Threat Hunting & Incident Response',
       description:
-        'Controlled security-monitoring environment for generating, collecting and analyzing endpoint telemetry.',
-      badges: ['Windows', 'Sysmon', 'Wazuh', 'Kali Linux'],
+        "Built a hands‑on Windows SOC environment to practice security monitoring, detection engineering, threat hunting, and incident response.",
+      badges: ['Wazuh', 'Sysmon', 'Windows 11', 'Sigma', 'MITRE ATT&CK', '✅ Completed'],
       ctaText: 'Explore SOC Lab',
       to: '/soc-lab',
     },

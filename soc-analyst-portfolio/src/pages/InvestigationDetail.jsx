@@ -1,4 +1,5 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
+import { Container } from '../components/ui/Container.jsx'
 import { investigations } from '../data/investigations.js'
 import EventTimeline from '../components/investigations/EventTimeline.jsx'
 import InvestigationEvidence from '../components/investigations/InvestigationEvidence.jsx'
@@ -36,7 +37,7 @@ export default function InvestigationDetail() {
   ]
 
   return (
-    <main className="space-y-12 py-12 lg:py-16">
+    <Container className="space-y-12 py-6 lg:py-10 text-white">
       <section className="space-y-6">
         <div className="max-w-4xl">
           <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-accent)]">{investigation.caseNumber}</p>
@@ -467,6 +468,6 @@ export default function InvestigationDetail() {
           </div>
         </aside>
       </section>
-    </main>
+    </Container>
   )
 }

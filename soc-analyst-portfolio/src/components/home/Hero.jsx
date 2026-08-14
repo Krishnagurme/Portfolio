@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { FileText, ExternalLink, Shield, Search } from 'lucide-react'
 import { Button } from '../ui/Button.jsx'
-import { Badge } from '../ui/Badge.jsx'
+
 import { siteConfig } from '../../data/siteConfig.js'
 import TelemetryPanel from './TelemetryPanel.jsx'
 
@@ -30,8 +30,11 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
-            <Button as={Link} to="/soc-lab" variant="primary" icon={Shield}>
-              View SOC Lab
+            <Button as={Link} to="/projects/soc-home-lab" variant="primary" icon={Shield}>
+              Explore SOC Lab
+            </Button>
+            <Button as={Link} to="/projects/" variant="secondary" icon={Search}>
+              View Projects
             </Button>
             <Button as={Link} to="/investigations" variant="secondary" icon={Search}>
               View Investigations

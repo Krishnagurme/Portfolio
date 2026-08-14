@@ -1,5 +1,6 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { projects } from '../data/projects.js'
+import { Container } from '../components/ui/Container.jsx'
 
 export default function ProjectDetail() {
   const { slug } = useParams()
@@ -10,7 +11,7 @@ export default function ProjectDetail() {
   }
 
   return (
-    <main className="space-y-12 py-12 lg:py-16 text-white">
+    <Container className="space-y-12 py-6 lg:py-10 text-white">
       <section className="space-y-6">
         <div className="max-w-4xl">
           <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-accent)]">{project.type}</p>
@@ -28,7 +29,7 @@ export default function ProjectDetail() {
           {project.sections.map((section) => (
             <article key={section.title} className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-[0_18px_35px_rgba(0,0,0,0.15)]">
               <h2 className="text-2xl font-semibold text-white">{section.title}</h2>
-              <p className="mt-4 text-base leading-8 text-[var(--color-secondary-text)]">{section.content}</p>
+              <p className="mt-4 text-base leading-8 text-[var(--color-secondary-text)] whitespace-pre-line">{section.content}</p>
             </article>
           ))}
 
@@ -41,20 +42,22 @@ export default function ProjectDetail() {
             </ul>
           </article>
 
-          <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-[0_18px_35px_rgba(0,0,0,0.15)]">
-            <h2 className="text-2xl font-semibold text-white">Project links</h2>
-            <div className="mt-6 grid gap-3">
-              {project.links.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className="inline-flex items-center rounded-[1rem] border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3 text-sm font-semibold text-[var(--color-text)] transition hover:bg-[var(--color-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
-                >
-                  {link.label}
-                </Link>
-              ))}
+          {project.links && project.links.length > 0 && (
+            <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-[0_18px_35px_rgba(0,0,0,0.15)]">
+              <h2 className="text-2xl font-semibold text-white">Project links</h2>
+              <div className="mt-6 grid gap-3">
+                {project.links.map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className="inline-flex items-center rounded-[1rem] border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3 text-sm font-semibold text-[var(--color-text)] transition hover:bg-[var(--color-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="space-y-4 rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 shadow-[0_18px_35px_rgba(0,0,0,0.15)]">
             <Link
@@ -74,6 +77,12 @@ export default function ProjectDetail() {
                 <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary-text)]">Goal</p>
                 <p className="mt-2 text-base text-white">Validate Windows event capture and analyst evidence in a SOC home lab.</p>
               </div>
+              {project.techStack && (
+                <div>
+                  <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary-text)]">Tech Stack</p>
+                  <p className="mt-2 text-base text-white">{project.techStack}</p>
+                </div>
+              )}
               <div>
                 <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-secondary-text)]">Project type</p>
                 <p className="mt-2 text-base text-white">{project.type}</p>
@@ -90,6 +99,6 @@ export default function ProjectDetail() {
           </div>
         </aside>
       </section>
-    </main>
+    </Container>
   )
 }

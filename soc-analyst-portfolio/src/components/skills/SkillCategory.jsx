@@ -1,4 +1,4 @@
-import { cn } from '../../utils/classNames'
+
 import { Badge } from '../ui/Badge.jsx'
 
 export default function SkillCategory({ icon: Icon, title, description, skills }) {

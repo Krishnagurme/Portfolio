@@ -78,7 +78,7 @@ export default function SocLab() {
               View Investigations
             </Link>
             <Link
-              to="/projects/soc-home-lab"
+              to="/projects"
               className="inline-flex items-center justify-center rounded-[1rem] border border-[var(--color-border)] bg-[var(--color-bg)] px-6 py-3 text-sm font-semibold text-[var(--color-text)] transition hover:bg-[var(--color-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
             >
               View Project

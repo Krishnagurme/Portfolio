@@ -1,5 +1,6 @@
-import { Activity, ShieldCheck, Terminal } from 'lucide-react'
+
 import { Link } from 'react-router-dom'
+import { Activity, ShieldCheck } from 'lucide-react'
 import { Button } from '../ui/Button.jsx'
 import { Card } from '../ui/Card.jsx'
 import { homeData } from '../../data/homeData.js'

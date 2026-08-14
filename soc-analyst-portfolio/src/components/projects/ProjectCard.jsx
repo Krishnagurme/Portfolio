@@ -37,7 +37,7 @@ export default function ProjectCard({ project }) {
         to={`/projects/${project.slug}`}
         className="mt-6 inline-flex items-center rounded-[1rem] bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-[var(--color-accent-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
       >
-        View project
+        View Project Details
       </Link>
     </article>
   )
