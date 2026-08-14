@@ -17,7 +17,12 @@ export const projects = [
       'Investigated and documented 10+ SOC cases using structured investigation reports and evidence-based false-positive analysis.',
       'Documented Windows telemetry, Sysmon process-creation events, authentication events, and analyst reasoning across all lab phases.',
     ],
-    links: [],
+    links: [
+      {
+        label: 'GitHub Repository',
+        to: 'https://github.com/Krishnagurme/Enterprise-SOC-Detection-Threat-Hunting-Incident-Response-Lab.git',
+      },
+    ],
     featured: true,
     sections: [
       {
@@ -63,12 +68,69 @@ export const projects = [
       {
         title: '09 – GitHub',
         content:
-          '🚧 Portfolio Implementation In Progress\n\nThe SOC Home Lab GitHub repository will include:\n• Custom Wazuh detection rules\n• Sigma rule files\n• Lab architecture documentation\n• Investigation report templates\n• Setup and deployment notes\n\nRepository URL will be published once documentation is finalized and sanitized for public sharing.',
+          'SOC Home Lab GitHub Repository:\nhttps://github.com/Krishnagurme/Enterprise-SOC-Detection-Threat-Hunting-Incident-Response-Lab.git',
       },
       {
         title: '10 – What I Learned',
         content:
           'Key learning outcomes from completing the SOC Home Lab project:\n\n• Windows telemetry collection and Sysmon instrumentation\n• Wazuh SIEM deployment, rule authoring, and alert management\n• Detection engineering — writing rules, mapping MITRE ATT&CK, reducing false positives\n• Threat hunting methodology — hypothesis-driven, technique-driven, and telemetry-driven approaches\n• Process-tree analysis using ProcessGuid, ParentProcessGuid, image paths, and command-line data\n• Authentication event analysis and logon context interpretation\n• Full incident response workflow — triage through lessons learned\n• Structured SOC investigation documentation and evidence-based analyst reasoning\n• Distinguishing benign activity from suspicious behavior using contextual analysis\n• Building analyst habits: question assumptions, review context, document conclusions',
+      },
+    ],
+  },
+  {
+    slug: 'project-02-incident-investigation',
+    title: 'SOC Incident Investigation & Threat Hunting Lab',
+    summary:
+      'Hands-on SOC investigation, evidence correlation, packet analysis, and threat hunting across Windows Security logs, Sysmon Event IDs 1 & 3, Wazuh SIEM, and Wireshark.',
+    focus: 'Multi-source telemetry correlation, process GUID lineage, Wireshark packet capture, MITRE ATT&CK mapping, and structured analyst verdict classification.',
+    status: 'Completed',
+    type: 'SOC Technical Investigation Lab',
+    techStack: 'Wazuh SIEM • Sysmon • Windows Security Logs • Wireshark • PowerShell • MITRE ATT&CK',
+    timeline: 'Completed — 6 Case Investigations, Master Timeline, Threat Hunting & MITRE Mapping',
+    highlights: [
+      'Investigated 6 structured SOC cases covering Brute Force (4625 -> 4624), PowerShell Bypass, Outbound TCP Port 8080, Credential Manager Enumeration (cmdkey /list), Scheduled Task Persistence (svchost.exe parent), and Full Attack Chain correlation.',
+      'Validated multi-source correlation across Sysmon Event ID 1 (Process Creation), Event ID 3 (Network Connection), Windows Event ID 4625/4624, Wazuh Rule 92052, and Wireshark HTTP packet captures.',
+      'Mapped all observed endpoint and network behaviors to MITRE ATT&CK techniques (T1110.001, T1059.001, T1555.004, T1053.005, T1059.003).',
+      'Applied a 12-step SOC analyst workflow: Alert Triage -> Evidence Collection -> IOC Extraction -> Timeline -> Telemetry Correlation -> Process/Network Analysis -> MITRE Mapping -> Classification -> Impact -> Recommendations -> Closure.',
+      'Published comprehensive recruiter-facing case reports, query guides, and threat hunting documentation.',
+    ],
+    links: [
+      {
+        label: 'GitHub Repository',
+        to: 'https://github.com/Krishnagurme/Soc-incident-investigation-threat-hunting.git',
+      },
+    ],
+    featured: true,
+    sections: [
+      {
+        title: '01 – Project Overview',
+        content:
+          'This hands-on SOC investigation laboratory was built to practice realistic security incident response, telemetry correlation, packet-level network analysis, and hypothesis-driven threat hunting.\n\nThe project focuses on analyzing real Windows Security Events, Sysmon telemetry, Wazuh SIEM alerts, and Wireshark packet captures generated across controlled laboratory scenarios.',
+      },
+      {
+        title: '02 – Lab Architecture',
+        content:
+          'Environment:\n• Attacker / Test Host: Kali Linux (192.168.56.101)\n• Monitored Endpoint: Windows 11 Victim (192.168.56.20) running Sysmon and Wazuh Agent\n• SIEM & Network Monitoring: Centralized Wazuh SIEM Manager/Dashboard + Wireshark Packet Analysis\n\nPipeline:\nWindows 11 (Sysmon / Event Log) → Wazuh Agent → Wazuh Manager → Analyst Review & Wireshark Corroboration',
+      },
+      {
+        title: '03 – Summary of 6 SOC Investigations',
+        content:
+          '• Case 01 (Brute-Force Authentication): Investigated 5x failed logons (Event 4625) followed by successful logon (Event 4624) for soc-test via NTLM from 192.168.56.101.\n• Case 02 (Suspicious PowerShell): Analyzed powershell.exe -ExecutionPolicy Bypass execution. Verdict: Suspicious flag, benign test string.\n• Case 03 (Network Investigation): Correlated Sysmon Event ID 3 TCP connection (192.168.56.20 -> 192.168.56.101:8080) with Wireshark packet captures. Verdict: Benign test traffic.\n• Case 04 (Credential Access): Identified cmdkey.exe /list (PID 532) spawned by powershell.exe under SOC-WIN11. Mapped to T1555.004.\n• Case 05 (Persistence): Investigated scheduled task SOC-CASE-05-Persistence executing at logon. Confirmed svchost.exe -s Schedule parent process (Wazuh Rule 92052).\n• Case 06 (Full Attack Chain): Constructed a master timeline across all cases. Validated host-level correlation while establishing that separate timestamps and user SIDs represent isolated lab modules rather than a single breach.',
+      },
+      {
+        title: '04 – MITRE ATT&CK Mapping',
+        content:
+          'Mapped empirical telemetry to MITRE ATT&CK framework:\n• T1110.001 — Password Guessing (Case 01)\n• T1059.001 — PowerShell (Case 02 & Case 04)\n• T1555.004 — Windows Credential Manager (Case 04)\n• T1053.005 — Scheduled Task (Case 05)\n• T1059.003 — Windows Command Shell (Case 05)',
+      },
+      {
+        title: '05 – Threat Hunting Query Library',
+        content:
+          'Authored and validated threat hunting queries across:\n• PowerShell Get-WinEvent for Event ID 4625, 4624, and Sysmon Event ID 1 & 3\n• Wazuh DQL queries for eventID:"1", eventID:"3", and commandLine filters\n• Wireshark display filters (ip.addr == 192.168.56.101 && tcp.port == 8080)',
+      },
+      {
+        title: '06 – Lessons Learned & Analyst Discipline',
+        content:
+          'Key findings:\n1. Co-location on the same host does not prove single-attacker attribution without matching SIDs, timestamps, and process GUIDs.\n2. Security-relevant flags (e.g. -ExecutionPolicy Bypass) require payload inspection before concluding malicious intent.\n3. Scheduled tasks manifest as svchost.exe -k netsvcs -p -s Schedule parent processes in Sysmon Event ID 1.',
       },
     ],
   },
